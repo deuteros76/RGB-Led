@@ -33,6 +33,6 @@ I use three 220 ohm resistors but it is preferable to use different values accor
 
 Because of that, the colors I get are not very accurate, It works well with red, green, blue amd magenta colors but for instance, I couldn't get yellow.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ierMWuUzd34" frameborder="0" allowfullscreen></iframe>
+[![Demo video](https://img.youtube.com/vi/ierMWuUzd34/0.jpg)](https://www.youtube.com/watch?v=ierMWuUzd34)
 
-When the code is executed the led shows a red color while is connecting to the WiFi access point. When the network is up, the led turns into green, This second color will change after the smartphone application starts. The RGB code selected in the smartphone is transmitted through the websocket to the NodeMCU, then the code is splitted and each of the red, green and blue values is converted to an integer and sent to the corresponding PWM pin.
+When the code is executed the led shows a red color while is connecting to the WiFi access point. When the network is up, the led turns into green, This second color will change after the smartphone application starts. The RGB code selected in the smartphone is transmitted through the websocket to the NodeMCU, then the code is split and each of the red, green and blue values is converted to an integer and sent to the corresponding PWM pin.
