@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
     QObject *item = engine.rootObjects().at(0);
 
-    WSClient client(QUrl(QStringLiteral("esp8266")));
+    WSClient client(QUrl(QStringLiteral("ws://192.168.4.1:81")));
     QObject::connect(&client, &WSClient::closed, &app, &QCoreApplication::quit);
 
     QObject::connect(item, SIGNAL(changeColor(QString)), &client, SLOT(onColorChanged(QString)));

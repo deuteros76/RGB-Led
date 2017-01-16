@@ -5,7 +5,6 @@
 #include <QtWebSockets/QWebSocket>
 #include <QHostInfo>
 #include <qnetworkrequest.h>
-#include "qMDNS/qMDNS.h"
 
 class WSClient : public QObject
 {
@@ -17,7 +16,6 @@ Q_SIGNALS:
     void closed();
 
 private Q_SLOTS:
-    void connectToServer(const QHostInfo& info);
     void onConnected();
     void onTextMessageReceived(QString message);
     void onColorChanged(QString color);
@@ -25,7 +23,6 @@ private Q_SLOTS:
 private:
     QWebSocket *m_webSocket;
     QUrl m_url;
-    qMDNS* m_mDNS;
 };
 
 #endif // WSCLIENT_H
