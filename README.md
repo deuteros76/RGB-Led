@@ -30,15 +30,15 @@ The circuit is very simple and can be found in other projects on the web.
 I use three 220 ohm resistors but it is preferable to use different values according to the information of the RGB led specifications. You can read about this for instance [here](http://forums.netduino.com/index.php?/topic/8060-resistor-value-for-rgb-led/#entry44769)
 
 
-Because of that, the colors I get are not very accurate, It works well with red, green, blue amd magenta but as an example, I couldn't get yellow.
+Because of that, the colors I get are not very accurate, It works well with red, green, blue and magenta but as an example, I couldn't get yellow.
 
 [![Demo video](https://img.youtube.com/vi/ierMWuUzd34/0.jpg)](https://www.youtube.com/watch?v=ierMWuUzd34)
 
-When the code is executed the led shows a red color while the WiFi access point is set. Then, when is ready, the led turns into green. Due to the NodeMCU works as an AP,it is necessary to connect to that wireless network fron the smartphone (or the computer). The dafault data is the following:
+When the code is executed the led shows a red color while the WiFi access point is set. Then, when is ready, the led turns into green. Due to the NodeMCU works as an AP,it is necessary to connect to that wireless network from the smartphone (or the computer). The default data is the following:
 
 - SSID: ESP8266-RGB
 - Password: rgb12345
 
 After connecting, the green color will change. The RGB code selected in the color picker is transmitted through the websocket to the NodeMCU. After that, the code is split and each of the red, green and blue values are converted to an integer and sent to the corresponding PWM pin. 
 
-Another option is to launch in a web browser the html client using this URL http://esp8266.local (if this doesn't work try http://192.168.4.1). You will se three sliders corresponding with the RGB values. Just change them and you will see the new color in your led.
+Another option is to launch in a web browser the html client using this URL http://esp8266.local (if this doesn't work try http://192.168.4.1). You will notice three sliders corresponding with the RGB values. Just change them and you will see the new color in your led.
