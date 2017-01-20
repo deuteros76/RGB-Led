@@ -32,7 +32,7 @@ I use three 220 ohm resistors but it is preferable to use different values accor
 
 Because of that, the colors I get are not very accurate, It works well with red, green, blue and magenta but as an example, I couldn't get yellow.
 
-[![Demo video](https://img.youtube.com/vi/ierMWuUzd34/0.jpg)](https://www.youtube.com/watch?v=ierMWuUzd34)
+[![Demo video](https://img.youtube.com/vi/ierMWuUzd34/0.jpg)](https://youtu.be/u7LrWDwsPoI)
 
 When the code is executed the led shows a red color while the WiFi access point is set. Then, when is ready, the led turns into green. Due to the NodeMCU works as an AP,it is necessary to connect to that wireless network from the smartphone (or the computer). The default data is the following:
 
