@@ -51,7 +51,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
 
 void setupWiFi()
 {
-  WiFiMulti.addAP("coquetia", "cocadenaranjacocadelimon");
+  WiFiMulti.addAP("YOUR_NETWORK_SSID", "YOUR_PASSWORD");
   
   while(WiFiMulti.run() != WL_CONNECTED) {
     delay(100);
