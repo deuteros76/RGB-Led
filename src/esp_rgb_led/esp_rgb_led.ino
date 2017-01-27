@@ -1,8 +1,6 @@
 
 #include <ESP8266WiFi.h>
-#include <ESP8266WiFiMulti.h>
 #include <ESP8266WebServer.h>
-#define DEBUG_WEBSOCKETS(...) Serial.printf( __VA_ARGS__ )
 #include <WebSocketsServer.h>
 #include <ESP8266mDNS.h>
 
@@ -10,7 +8,7 @@
 #define GREEN_PIN 14 //(D2) 
 #define BLUE_PIN 12  //(D3)
 
-ESP8266WiFiMulti WiFiMulti;
+const char WiFiAPPSK[] = "rgb12345";       
 
 ESP8266WebServer server = ESP8266WebServer(80);
 WebSocketsServer webSocket = WebSocketsServer(81);
@@ -38,26 +36,18 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
                 // decode rgb data
                 uint32_t rgb = (uint32_t) strtol((const char *) &payload[1], NULL, 16);
 
-                analogWrite(RED_PIN,    ((rgb >> 16) & 0xFF));
-                analogWrite(GREEN_PIN,  ((rgb >> 8) & 0xFF));
-                analogWrite(BLUE_PIN,   ((rgb >> 0) & 0xFF));
+                analogWrite(RED_PIN,    ((rgb >> 16) & 0xFF) <<2); //PWM on a ESP8266 is from 0 to 1024, so the last <<2 (we are multiplying by 4)
+                analogWrite(GREEN_PIN,  ((rgb >> 8) & 0xFF) <<2);
+                analogWrite(BLUE_PIN,   ((rgb >> 0) & 0xFF) <<2);
             }
-
             break;
     }
-
-}
-           
+}           
 
 void setupWiFi()
 {
-  WiFiMulti.addAP("YOUR_NETWORK_SSID", "YOUR_PASSWORD");
-  
-  while(WiFiMulti.run() != WL_CONNECTED) {
-    delay(100);
-  }
-  Serial.print("Device IP is ");
-  Serial.println( WiFi.localIP());
+  WiFi.mode(WIFI_AP);
+  WiFi.softAP("ESP8266-RGB", WiFiAPPSK);
 }
 
 void setup()
